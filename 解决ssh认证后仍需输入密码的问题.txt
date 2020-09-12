@@ -1,0 +1,29 @@
+# windows (下面的命令要在 git bash 中执行)
+eval $(ssh-agent -s)
+ssh-add /c/Users/.ssh/id_rsa
+(windows的解决方案亲测可用)
+
+# mac
+Host *
+UseKeychain yes
+AddKeysToAgent yes
+User root
+Host 10.0.0.1
+IdentityFile ~/.ssh/1.key
+Host 10.0.0.2
+IdentityFile ~/.ssh/2.key
+
+#ubuntu
+# eval $(ssh-agent) 命令行执行
+Host *
+AddKeysToAgent yes
+User root
+Host github.com
+IdentityFile ~/.ssh/github.key
+
+#centos
+# eval $(ssh-agent) 命令行执行
+Host *
+User root
+Host github.com
+IdentityFile ~/.ssh/github.key
